@@ -13,7 +13,7 @@ interface Book{
   id: number;
   name: string;
   author: string;
-  available: boolean;
+  available: number;
 }
 interface Borrowing{
   id: number;
@@ -39,7 +39,7 @@ export class AppComponent {
     id: 0,
     name: '',
     author: '',
-    available: true
+    available: 0
   }
   borrowings : Borrowing[] = [];
   borrowing : Borrowing = {
