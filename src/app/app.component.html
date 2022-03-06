@@ -48,24 +48,9 @@
 </div>
 <!--borrowings-->
 <div *ngIf="activeMenu == 2">
-  Id:<input [(ngModel)]="borrowing.id" type="number"><br>
-  Book:<input [(ngModel)]="borrowing.book" type="text"><br>
-  User:<input [(ngModel)]="borrowing.user" type="text"><br>
-  <button (click)="addBorrowing()">Borrow book!</button>
-  <br><br>
-  List of borrowings: <br>
-  <table>
-    <tr>
-      <th>ID </th>
-      <th>BOOK </th>
-      <th>USER </th>
-    </tr>
-    <tr *ngFor="let bo of borrowings">
-      <td>{{bo.id}}</td>
-      <td>{{bo.book}}</td>
-      <td>{{bo.user}}</td>
-    </tr>
-  </table>
+
+
+
 </div>
 
-
+<router-outlet></router-outlet>

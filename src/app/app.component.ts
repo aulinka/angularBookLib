@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Router} from "@angular/router";
 enum MENU{
   USER,
   BOOKS,
@@ -15,11 +16,7 @@ interface Book{
   author: string;
   available: number;
 }
-interface Borrowing{
-  id: number;
-  book: string;
-  user: string;
-}
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -41,14 +38,15 @@ export class AppComponent {
     author: '',
     available: 0
   }
-  borrowings : Borrowing[] = [];
-  borrowing : Borrowing = {
-    id: 0,
-    book: '',
-    user: ''
+
+
+  constructor(private router:Router) {
   }
   openWindow(m: MENU) {
     this.activeMenu = m;
+    if(m == 2){
+      this.router.navigate(['/borrowing']);
+    }
   }
   addUser(){
     let u2 = {id: this.user.id, name: this.user.name, contact: this.user.contact}
@@ -58,9 +56,5 @@ export class AppComponent {
     let b2 = {id: this.book.id, name: this.book.name, author: this.book.author, available: this.book.available}
     this.books.push(b2);
   }
-  addBorrowing(){
-    let bo = {id: this.borrowing.id, book: this.borrowing.book, user: this.borrowing.user}
-    this.borrowings.push(bo);
-    //console.log(bo);
-  }
+
 }
