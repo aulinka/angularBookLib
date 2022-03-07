@@ -1,56 +1,5 @@
 <button (click)="openWindow(0)">USERS</button>
 <button (click)="openWindow(1)">BOOKS</button>
 <button (click)="openWindow(2)">BORROWINGS</button><br><br>
-<!--users-->
-<div *ngIf="activeMenu == 0">
-  Id:<input [(ngModel)]="user.id" type="number"><br>
-  Name:<input [(ngModel)]="user.name" type="text"><br>
-  Contact:<input [(ngModel)]="user.contact" type="text"><br>
-  <button (click)="addUser()">Add user</button>
-  <br><br>
-  List of users: <br>
-  <table>
-    <tr>
-      <th>ID </th>
-      <th>NAME </th>
-      <th>CONTACT </th>
-    </tr>
-    <tr *ngFor="let u2 of users">
-      <td>{{u2.id}}</td>
-      <td>{{u2.name}}</td>
-      <td>{{u2.contact}}</td>
-    </tr>
-  </table>
-</div>
-<!--books-->
-<div *ngIf="activeMenu == 1">
-  Id:<input [(ngModel)]="book.id" type="number"><br>
-  Name:<input [(ngModel)]="book.name" type="text"><br>
-  Author:<input [(ngModel)]="book.author" type="text"><br>
-  Available:<input [(ngModel)]="book.available" type="text"><br>
-  <button (click)="addBook()">Add book</button>
-  <br><br>
-  List of books: <br>
-  <table>
-    <tr>
-      <th>ID </th>
-      <th>NAME </th>
-      <th>AUTHOR </th>
-      <th>AVAILABLE </th>
-    </tr>
-    <tr *ngFor="let b2 of books">
-      <td>{{b2.id}}</td>
-      <td>{{b2.name}}</td>
-      <td>{{b2.author}}</td>
-      <td>{{b2.available}}</td>
-    </tr>
-  </table>
-</div>
-<!--borrowings-->
-<div *ngIf="activeMenu == 2">
-
-
-
-</div>
 
 <router-outlet></router-outlet>

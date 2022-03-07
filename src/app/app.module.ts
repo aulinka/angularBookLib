@@ -8,13 +8,19 @@ import { BorrowingPageComponent } from './borrowing-page/borrowing-page.componen
 import { BorrowingListComponent } from './borrowing-list/borrowing-list.component';
 import {RouterModule} from "@angular/router";
 import {AppRoutingModule} from "./app-routing.module";
+import { BookFormularComponent } from './book-formular/book-formular.component';
+import { BookZoznamComponent } from './book-zoznam/book-zoznam.component';
+import { BookStrankaComponent } from './book-stranka/book-stranka.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BorrowingFormComponent,
     BorrowingPageComponent,
-    BorrowingListComponent
+    BorrowingListComponent,
+    BookFormularComponent,
+    BookZoznamComponent,
+    BookStrankaComponent
   ],
     imports: [
         BrowserModule,
