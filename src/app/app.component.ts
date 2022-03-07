@@ -21,6 +21,9 @@ export class AppComponent {
 
   openWindow(m: MENU) {
     this.activeMenu = m;
+    if(m == 0) {
+      this.router.navigate(['/user']);
+    }
     if(m == 1) {
       this.router.navigate(['/book']);
     }

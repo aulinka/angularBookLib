@@ -11,6 +11,9 @@ import {AppRoutingModule} from "./app-routing.module";
 import { BookFormularComponent } from './book-formular/book-formular.component';
 import { BookZoznamComponent } from './book-zoznam/book-zoznam.component';
 import { BookStrankaComponent } from './book-stranka/book-stranka.component';
+import {UserZoznamComponent} from "./user-zoznam/user-zoznam.component";
+import {UserFormularComponent} from "./user-formular/user-formular.component";
+import {UserStrankaComponent} from "./user-stranka/user-stranka.component";
 
 @NgModule({
   declarations: [
@@ -20,7 +23,10 @@ import { BookStrankaComponent } from './book-stranka/book-stranka.component';
     BorrowingListComponent,
     BookFormularComponent,
     BookZoznamComponent,
-    BookStrankaComponent
+    BookStrankaComponent,
+    UserFormularComponent,
+    UserStrankaComponent,
+    UserZoznamComponent
   ],
     imports: [
         BrowserModule,
