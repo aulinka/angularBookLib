@@ -1,0 +1,26 @@
+<br><br>
+<h3>List of books:</h3><br>
+
+<div *ngIf="!books || books?.length === 0">
+  Zoznam kníh je prázdny.
+</div>
+
+<table class="bookTable" *ngIf="books?.length > 0">
+  <tr>
+    <th>ID </th>
+    <th>NAME </th>
+    <th>AUTHOR </th>
+    <th>AVAILABLE </th>
+    <th></th>
+  </tr>
+  <tr *ngFor="let book of books">
+    <td>{{book.id}}</td>
+    <td>{{book.name}}</td>
+    <td>{{book.author}}</td>
+    <td>{{book.available}}</td>
+    <td>
+      <button (click)="updateBook(book)">Upraviť</button>
+      <button (click)="deleteBook(book)">Vymazať</button>
+    </td>
+  </tr>
+</table>

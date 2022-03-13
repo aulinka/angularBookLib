@@ -1,0 +1,16 @@
+<h1>BOOKS</h1>
+
+<app-book-formular [book]="updatingBook"
+                   (pridajBook)="addBook($event)"
+                   (upravBook)="updateBook($event)">
+</app-book-formular>
+
+<app-book-zoznam [books]="books"
+                 (pridajBook)="updateFromList($event)"
+                 (vymazBook)="deleteFromList($event)">
+</app-book-zoznam>
+<br>
+
+<div>
+  <button (click)="goBack()">späť</button>
+</div>

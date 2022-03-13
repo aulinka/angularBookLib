@@ -1,0 +1,14 @@
+<h1>BOOKS - form</h1>
+
+<form [formGroup]="form">
+
+  <label>id: <input formControlName="id"></label><br>
+  <label>name: <input formControlName="name"></label><br>
+  <label>author: <input formControlName="author"></label><br>
+  <label>available: <input formControlName="available"></label><br>
+
+  <button (click)="addBook()" *ngIf="form.value.id === null">Pridaj knihu</button>
+  <button (click)="updateBook()" *ngIf="form.value.id !== null">Uprav knihu</button>
+  <button (click)="deleteBook()">Vymaž knihu</button>
+
+</form>
