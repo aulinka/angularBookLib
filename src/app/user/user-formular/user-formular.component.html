@@ -1,8 +1,13 @@
-id:
-<input [(ngModel)]="user.id"><br>
-name:
-<input [(ngModel)]="user.name"><br>
-contact:
-<input [(ngModel)]="user.contact"><br><br>
+<h2>USERS - form</h2>
 
-<button (click)="addUser()">Pridaj usera</button><br><br>
+<form [formGroup]="form">
+
+  <label>Name: <input formControlName="name"></label><br>
+  <label>Contact: <input formControlName="contact"></label><br>
+  <br>
+
+  <button (click)="addUser()" *ngIf="form.value.id === null">Pridaj usera</button>
+  <button (click)="updateUser()" *ngIf="form.value.id !== null">Uprav usera</button>
+  <button (click)="deleteUser()">Vymaž usera</button>
+
+</form>

@@ -1,15 +1,21 @@
-List of users:<br>
-<table>
+<h3>List of users:</h3>
+
+<div *ngIf="!users || users?.length === 0">
+  Zoznam používateľov je prázdny.
+</div>
+
+<table class="userTable" *ngIf="users?.length > 0">
   <tr>
-    <th>ID </th>
-    <th>Name </th>
-    <th>Contact </th>
+    <th>NAME </th>
+    <th>CONTACT </th>
+    <th></th>
   </tr>
-
-
-<tr *ngFor="let u of users">
-  <td>{{u.id}}</td>
-  <td>{{u.name}}</td>
-  <td>{{u.contact}}</td>
-</tr>
+  <tr *ngFor="let user of users">
+    <td>{{user.name}}</td>
+    <td>{{user.contact}}</td>
+    <td>
+      <button (click)="updateUser(user)">Upraviť</button>
+      <button (click)="deleteUser(user)">Vymazať</button>
+    </td>
+  </tr>
 </table>

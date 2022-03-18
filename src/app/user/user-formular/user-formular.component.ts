@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {User} from "../../models/user.model";
+import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {User} from '../../models/user.model';
+import {FormControl, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-user-formular',
@@ -8,13 +9,51 @@ import {User} from "../../models/user.model";
 })
 export class UserFormularComponent {
 
-  user: User = { id: 987,name: 'aaa', contact: 'bbb' }
-
-  constructor() { }
-
-  addUser(){
-    let u = {id: this.user.id, name: this.user.name, contact: this.user.contact}
+  @Input()
+  set user(data: User) {
+    if (data) {
+      this.fillUserForm(data);
+    }
   }
 
-}
+  @Output()
+  pridajUsera = new EventEmitter<User>();
 
+  @Output()
+  upravUsera = new EventEmitter<User>();
+
+  form: FormGroup;
+
+  constructor() {
+    this.createUserForm();
+  }
+
+  private createUserForm(): void {
+    this.form = new FormGroup({
+      id: new FormControl(null),
+      name: new FormControl(null),
+      contact: new FormControl(null)
+    });
+  }
+
+  private fillUserForm(user: User): void {
+    this.form.controls['id'].setValue(user.id);
+    this.form.controls['name'].setValue(user.name);
+    this.form.controls['contact'].setValue(user.contact);
+  }
+
+  public addUser(): void {
+    this.pridajUsera.emit({ id: Math.random().toString(), name: this.form.value.name, contact: this.form.value.contact});
+    this.form.reset();
+  }
+
+  public updateUser(): void {
+    this.upravUsera.emit(this.form.value);
+    this.form.reset();
+  }
+
+  public deleteUser(): void {
+    this.user = undefined;
+    this.form.reset();
+  }
+}
