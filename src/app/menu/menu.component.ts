@@ -18,7 +18,13 @@ export class MenuComponent {
 
   openWindow(m: MENU) {
     if (m === MENU.USERS) {
-      this.router.navigate(['/users']);
+      this.router.navigate(['/user']);
+    }
+    if (m === MENU.BOOKS) {
+      this.router.navigate(['/book']);
+    }
+    if (m === MENU.BORROWINGS) {
+      this.router.navigate(['/borrowing']);
     }
   }
 

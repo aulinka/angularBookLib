@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import {BorrowingPageComponent} from "./borrowing/borrowing-page/borrowing-page.component";
 import {UserStrankaComponent} from "./user/user-stranka/user-stranka.component";
 import {BookStrankaComponent} from "./book/book-stranka/book-stranka.component";
-
+import {MenuComponent} from "./menu/menu.component";
 
 const routes: Routes = [
   {
@@ -17,6 +17,10 @@ const routes: Routes = [
   {
     path: "book",
     component: BookStrankaComponent
+  },
+  {
+    path: '',
+    component: MenuComponent
   }
 ];
 

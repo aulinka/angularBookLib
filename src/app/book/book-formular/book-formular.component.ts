@@ -38,10 +38,10 @@ export class BookFormularComponent {
   }
 
   private fillBookForm(book: Book): void {
-    this.form.controls.id.setValue(book.id);
-    this.form.controls.name.setValue(book.name);
-    this.form.controls.author.setValue(book.author);
-    this.form.controls.available.setValue(book.available);
+    this.form.controls['id'].setValue(book.id);
+    this.form.controls['name'].setValue(book.name);
+    this.form.controls['author'].setValue(book.author);
+    this.form.controls['available'].setValue(book.available);
   }
 
   public addBook(): void {
