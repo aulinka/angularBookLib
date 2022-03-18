@@ -6,7 +6,7 @@ import {Borrowing} from "../../models/borrowing.model";
   templateUrl: './borrowing-list.component.html',
   styleUrls: ['./borrowing-list.component.css']
 })
-export class BorrowingListComponent {
+export class BorrowingListComponent{
 
   @Input()
   borrowings : Borrowing[] = [];

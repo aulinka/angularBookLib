@@ -7,7 +7,10 @@ import {Router} from "@angular/router";
   templateUrl: './borrowing-page.component.html',
   styleUrls: ['./borrowing-page.component.css']
 })
-export class BorrowingPageComponent {
+export class BorrowingPageComponent implements OnInit{
+
+  ngOnInit(): void {
+  }
 
   borrowings : Borrowing[] = [];
   borrowingEdited: Borrowing;
