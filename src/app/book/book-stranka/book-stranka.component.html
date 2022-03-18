@@ -1,16 +1,16 @@
 <h1>BOOKS</h1>
 
 <app-book-formular [book]="updatingBook"
-                   (pridajBook)="addBook($event)"
-                   (upravBook)="updateBook($event)">
+                   (addNewBook)="addBook($event)"
+                   (updateNewBook)="updateBook($event)">
 </app-book-formular>
 
 <app-book-zoznam [books]="books"
-                 (upravBook)="updateFromList($event)"
-                 (vymazBook)="deleteFromList($event)">
+                 (updateNewBook)="updateFromList($event)"
+                 (deleteNewBook)="deleteFromList($event)">
 </app-book-zoznam>
 <br>
 
 <div>
-  <button (click)="goBack()">späť</button>
+  <button (click)="goBack()">back</button>
 </div>

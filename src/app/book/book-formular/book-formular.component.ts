@@ -17,10 +17,10 @@ export class BookFormularComponent {
   }
 
   @Output()
-  pridajBook = new EventEmitter<Book>();
+  addNewBook = new EventEmitter<Book>();
 
   @Output()
-  upravBook = new EventEmitter<Book>();
+  updateNewBook = new EventEmitter<Book>();
 
   form: FormGroup;
 
@@ -45,12 +45,12 @@ export class BookFormularComponent {
   }
 
   public addBook(): void {
-    this.pridajBook.emit({id: Math.random().toString(), name: this.form.value.name, author: this.form.value.author, available: this.form.value.available});
+    this.addNewBook.emit({id: Math.random().toString(), name: this.form.value.name, author: this.form.value.author, available: this.form.value.available});
     this.form.reset();
   }
 
   public updateBook(): void {
-    this.upravBook.emit(this.form.value);
+    this.updateNewBook.emit(this.form.value);
     this.form.reset();
   }
 

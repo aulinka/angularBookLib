@@ -12,17 +12,17 @@ export class BookZoznamComponent {
   books: Book[] = [];
 
   @Output()
-  upravBook: EventEmitter<Book> = new EventEmitter<Book>();
+  updateNewBook: EventEmitter<Book> = new EventEmitter<Book>();
 
   @Output()
-  vymazBook: EventEmitter<Book> = new EventEmitter<Book>();
+  deleteNewBook: EventEmitter<Book> = new EventEmitter<Book>();
 
   updateBook(book: Book): void {
-    this.upravBook.emit(book);
+    this.updateNewBook.emit(book);
   }
 
   deleteBook(book: Book): void {
-    this.vymazBook.emit(book);
+    this.deleteNewBook.emit(book);
   }
 
 }

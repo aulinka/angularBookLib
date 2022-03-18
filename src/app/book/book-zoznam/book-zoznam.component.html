@@ -1,7 +1,7 @@
 <h3>List of books:</h3>
 
 <div *ngIf="!books || books?.length === 0">
-  Zoznam kníh je prázdny.
+  The list of books is empty.
 </div>
 
 <table class="bookTable" *ngIf="books?.length > 0">
@@ -16,8 +16,8 @@
     <td>{{book.author}}</td>
     <td>{{book.available}}</td>
     <td>
-      <button (click)="updateBook(book)">Upraviť</button>
-      <button (click)="deleteBook(book)">Vymazať</button>
+      <button (click)="updateBook(book)">Update</button>
+      <button (click)="deleteBook(book)">Delete</button>
     </td>
   </tr>
 </table>
