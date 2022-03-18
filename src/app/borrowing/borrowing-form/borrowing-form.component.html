@@ -1,4 +1,19 @@
-Id:<input [(ngModel)]="borrowing.id" type="number"><br>
-Book:<input [(ngModel)]="borrowing.book" type="text"><br>
-User:<input [(ngModel)]="borrowing.user" type="text"><br>
-<button (click)="addBorrowing()">Borrow book!</button>
+<form [formGroup]="form">
+  <label>ID:
+    <input formControlName="id">
+  </label>
+  <br>
+  <label>BOOK:
+    <input formControlName="book">
+  </label>
+  <br>
+  <label>USER:
+    <input formControlName="user">
+  </label>
+  <br>
+
+  <button (click)="add()" *ngIf="form.value.id === null">Add borrowing!</button>
+  <button (click)="edit()" *ngIf="form.value.id !== null">Edit borrowing!</button>
+  <button (click)="discard()"> Discard!</button>
+
+</form>

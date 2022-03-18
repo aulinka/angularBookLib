@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Borrowing} from "../../models/borrowing.model";
 
 @Component({
@@ -6,12 +6,21 @@ import {Borrowing} from "../../models/borrowing.model";
   templateUrl: './borrowing-list.component.html',
   styleUrls: ['./borrowing-list.component.css']
 })
-export class BorrowingListComponent implements OnInit {
+export class BorrowingListComponent {
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  @Input()
   borrowings : Borrowing[] = [];
 
+  @Output()
+  editBorrowing : EventEmitter<Borrowing> = new EventEmitter<Borrowing>();
+
+  @Output()
+  deleteBorrowing : EventEmitter<Borrowing> = new EventEmitter<Borrowing>();
+
+  public edit(borrowing : Borrowing): void{
+    this.editBorrowing.emit(borrowing);
+  }
+  public delete(borrowing : Borrowing): void{
+    this.deleteBorrowing.emit(borrowing);
+  }
 }

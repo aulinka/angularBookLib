@@ -1,4 +1,12 @@
-<app-borrowing-form></app-borrowing-form>
-<br><br>
 List of borrowings: <br>
-<app-borrowing-list></app-borrowing-list>
+<app-borrowing-form [borrowing]="borrowingEdited"
+                    (addBorrowing)="addBorrowing($event)"
+                    (editBorrowing)="editBorrowing($event)">
+</app-borrowing-form>
+
+<app-borrowing-list [borrowings]="borrowings"
+                    (editBorrowing)="editFromList($event)"
+                    (deleteBorrowing)="deleteFromList($event)">
+</app-borrowing-list>
+<br>
+<button (click)="goBack()">Click to go back!</button>

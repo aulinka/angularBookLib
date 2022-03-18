@@ -1,4 +1,9 @@
-<table>
+<div *ngIf="!borrowings || borrowings.length === 0">
+  Zoznam je prazdny!
+</div>
+
+
+<table class="BorrowingTable" *ngIf="borrowings.length > 0">
   <tr>
     <th>ID </th>
     <th>BOOK </th>
@@ -8,5 +13,9 @@
     <td>{{bo.id}}</td>
     <td>{{bo.book}}</td>
     <td>{{bo.user}}</td>
+    <td>
+      <button (click)="edit(bo)">Edit!</button>
+      <button (click)="delete(bo)">Delete!</button>
+    </td>
   </tr>
 </table>
