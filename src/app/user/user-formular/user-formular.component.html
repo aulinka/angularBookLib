@@ -6,8 +6,8 @@
   <label>Contact: <input formControlName="contact"></label><br>
   <br>
 
-  <button (click)="addUser()" *ngIf="form.value.id === null">Pridaj usera</button>
-  <button (click)="updateUser()" *ngIf="form.value.id !== null">Uprav usera</button>
-  <button (click)="deleteUser()">Vymaž usera</button>
+  <button (click)="addUser()" *ngIf="form.value.id === null">Add user</button>
+  <button (click)="updateUser()" *ngIf="form.value.id !== null">Update user</button>
+  <button (click)="deleteUser()">Delete user</button>
 
 </form>

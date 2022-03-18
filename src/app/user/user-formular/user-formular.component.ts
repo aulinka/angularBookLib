@@ -17,10 +17,10 @@ export class UserFormularComponent {
   }
 
   @Output()
-  pridajUsera = new EventEmitter<User>();
+  addNewUser = new EventEmitter<User>();
 
   @Output()
-  upravUsera = new EventEmitter<User>();
+  updateNewUser = new EventEmitter<User>();
 
   form: FormGroup;
 
@@ -43,12 +43,12 @@ export class UserFormularComponent {
   }
 
   public addUser(): void {
-    this.pridajUsera.emit({ id: Math.random().toString(), name: this.form.value.name, contact: this.form.value.contact});
+    this.addNewUser.emit({ id: Math.random().toString(), name: this.form.value.name, contact: this.form.value.contact});
     this.form.reset();
   }
 
   public updateUser(): void {
-    this.upravUsera.emit(this.form.value);
+    this.updateNewUser.emit(this.form.value);
     this.form.reset();
   }
 

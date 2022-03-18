@@ -12,16 +12,16 @@ export class UserZoznamComponent {
   users: User[] = [];
 
   @Output()
-  upravUsera: EventEmitter<User> = new EventEmitter<User>();
+  updateNewUser: EventEmitter<User> = new EventEmitter<User>();
 
   @Output()
-  vymazUsera: EventEmitter<User> = new EventEmitter<User>();
+  deleteNewUser: EventEmitter<User> = new EventEmitter<User>();
 
   updateUser(user: User): void {
-    this.upravUsera.emit(user);
+    this.updateNewUser.emit(user);
   }
 
   deleteUser(user: User): void {
-    this.vymazUsera.emit(user);
+    this.deleteNewUser.emit(user);
   }
 }

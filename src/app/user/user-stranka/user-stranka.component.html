@@ -1,16 +1,16 @@
 <h1>USERS</h1>
 
 <app-user-formular [user]="updatingUser"
-                   (pridajUsera)="addUser($event)"
-                   (upravUsera)="updateUser($event)">
+                   (addNewUser)="addUser($event)"
+                   (updateNewUser)="updateUser($event)">
 </app-user-formular>
 
 <app-user-zoznam [users]="users"
-                 (upravUsera)="updateFromList($event)"
-                 (vymazUsera)="deleteFromList($event)">
+                 (updateNewUser)="updateFromList($event)"
+                 (deleteNewUser)="deleteFromList($event)">
 </app-user-zoznam>
 <br>
 
 <div>
-  <button (click)="goBack()">späť</button>
+  <button (click)="goBack()">Go back</button>
 </div>
