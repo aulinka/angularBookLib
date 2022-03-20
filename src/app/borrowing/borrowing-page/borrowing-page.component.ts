@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Borrowing} from "../../models/borrowing.model";
 import {Router} from "@angular/router";
+import {BorrowingService} from "../../../borrowing.service";
 
 @Component({
   selector: 'app-borrowing-page',
@@ -10,12 +11,13 @@ import {Router} from "@angular/router";
 export class BorrowingPageComponent implements OnInit{
 
   ngOnInit(): void {
+    this.refreshBorrowing();
   }
 
   borrowings : Borrowing[] = [];
   borrowingEdited: Borrowing;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private borrowingService : BorrowingService) { }
 
   public goBack() : void{
     this.router.navigate(['']);
@@ -38,4 +40,13 @@ export class BorrowingPageComponent implements OnInit{
       this.borrowings.splice(index,1);
     }
   }
+  public refreshBorrowing() : void{
+    this.borrowingService.getBorrowings().subscribe(data => {
+      this.borrowings = [];
+      for(const d of data){
+        this.borrowings.push({id: d.id.toString(), book: d.bookId.toString(), user: d.customerId.toString()});
+      }
+    });
+  }
+
 }

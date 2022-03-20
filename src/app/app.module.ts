@@ -15,6 +15,9 @@ import {UserZoznamComponent} from "./user/user-zoznam/user-zoznam.component";
 import {UserFormularComponent} from "./user/user-formular/user-formular.component";
 import {UserStrankaComponent} from "./user/user-stranka/user-stranka.component";
 import { MenuComponent } from './menu/menu.component';
+import {HttpClientModule} from '@angular/common/http';
+
+
 
 @NgModule({
   declarations: [
@@ -35,7 +38,8 @@ import { MenuComponent } from './menu/menu.component';
     FormsModule,
     RouterModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
