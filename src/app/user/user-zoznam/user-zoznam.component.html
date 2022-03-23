@@ -5,11 +5,14 @@
 </div>
 
 <table class="userTable" *ngIf="users?.length > 0">
+  <thead>
   <tr>
     <th>NAME </th>
     <th>CONTACT </th>
     <th></th>
   </tr>
+  </thead>
+  <tbody>
   <tr *ngFor="let user of users">
     <td>{{user.name}}</td>
     <td>{{user.contact}}</td>
@@ -18,4 +21,5 @@
       <button (click)="deleteUser(user)">Delete</button>
     </td>
   </tr>
+  </tbody>
 </table>
