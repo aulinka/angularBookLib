@@ -23,11 +23,7 @@ export class UserStrankaComponent implements OnInit{
   refreshUser(): void {
     this.userService.getUsers().subscribe(data => {
       console.log('prislo:', data);
-      this.users = [];
-      for (const d of data) {
-
-        this.users.push({ id: d.id, name: d.name, contact: d.name});
-      }
+      this.users = data;
     });
   }
 
@@ -36,7 +32,6 @@ export class UserStrankaComponent implements OnInit{
   }
 
   addUser(user: User): void {
-    //this.users.push(user);
     this.userService.createUser(user).subscribe(data => {
       console.log('prislo:', data);
       this.refreshUser();
@@ -44,20 +39,24 @@ export class UserStrankaComponent implements OnInit{
   }
 
   updateUser(user: User): void {
-    const index = this.users.findIndex(userArray => userArray.id === user.id);
-    if (index !== -1) {
-      this.users[index] = user;
+    if (user.id !== undefined) {
+      this.userService.updateUser(user.id, user).subscribe(data => {
+        console.log('prišlo:', data);
+        this.refreshUser();
+      });
     }
   }
 
-  updateFromList(user: User): void {
-    this.updatingUser = user;
+  updateFromList(userId: number): void {
+    this.userService.getUser(userId).subscribe(data => {
+      console.log('prišlo:', data);
+      this.updatingUser = data;
+    });
   }
 
-  deleteFromList(user: User): void {
-    const index = this.users.findIndex(userArray => userArray.id === user.id);
-    if (index !== -1) {
-      this.users.splice(index, 1);
-    }
+  deleteFromList(userId: number): void {
+    this.userService.deleteUser(userId).subscribe(data => {
+      this.refreshUser();
+    });
   }
 }
