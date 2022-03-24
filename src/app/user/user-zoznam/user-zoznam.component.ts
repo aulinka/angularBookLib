@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {User} from '../../models/user.model';
+import {User, UserZoznam} from '../../models/user.model';
 
 @Component({
   selector: 'app-user-zoznam',
@@ -9,19 +9,19 @@ import {User} from '../../models/user.model';
 export class UserZoznamComponent {
 
   @Input()
-  users: User[] = [];
+  users: UserZoznam[] = [];
 
   @Output()
-  updateNewUser: EventEmitter<User> = new EventEmitter<User>();
+  updateNewUser: EventEmitter<number> = new EventEmitter<number>();
 
   @Output()
-  deleteNewUser: EventEmitter<User> = new EventEmitter<User>();
+  deleteNewUser: EventEmitter<number> = new EventEmitter<number>();
 
-  updateUser(user: User): void {
-    this.updateNewUser.emit(user);
+  updateUser(userId: number): void {
+    this.updateNewUser.emit(userId);
   }
 
-  deleteUser(user: User): void {
-    this.deleteNewUser.emit(user);
+  deleteUser(userId: number): void {
+    this.deleteNewUser.emit(userId);
   }
 }
