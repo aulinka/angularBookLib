@@ -45,7 +45,7 @@ export class BookFormularComponent {
   }
 
   public addBook(): void {
-    this.addNewBook.emit({id: Math.random().toString(), name: this.form.value.name, author: this.form.value.author, available: this.form.value.available});
+    this.addNewBook.emit({ id: Math.random(), name: this.form.value.name, author: this.form.value.author, available: this.form.value.available});
     this.form.reset();
   }
 

@@ -16,8 +16,8 @@
     <td>{{book.author}}</td>
     <td>{{book.available}}</td>
     <td>
-      <button (click)="updateBook(book)">Update</button>
-      <button (click)="deleteBook(book)">Delete</button>
+      <button (click)="updateBook(book.id)">Update</button>
+      <button (click)="deleteBook(book.id)">Delete</button>
     </td>
   </tr>
 </table>

@@ -1,6 +1,6 @@
 export class Book {
 
-  id?: string;
+  id?: number;
   name: string;
   author: string;
   available: number;
@@ -14,7 +14,7 @@ export class Book {
 }
 
 export class BookZoznam {
-    id?: string;
+    id?: number;
     name: string;
     author: string;
     available: number;

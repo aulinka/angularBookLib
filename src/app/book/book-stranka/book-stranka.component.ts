@@ -24,10 +24,7 @@ export class BookStrankaComponent implements OnInit {
   refreshBooks(): void {
     this.bookService.getBooks().subscribe(data => {
       console.log('prišlo:', data);
-      this.books = [];
-      for (const d of data) {
-        this.books.push({ id: d.id, name: d.name, author: d.author, available: d.available});
-      }
+      this.books = data;
     });
   }
 
@@ -43,21 +40,25 @@ export class BookStrankaComponent implements OnInit {
   }
 
   updateBook(book: Book): void {
-    const index = this.books.findIndex(bookArray => bookArray.id === book.id);
-    if(index !== -1) {
-      this.books[index] = book;
+    if (book.id !== undefined) {
+      this.bookService.updateBook(book.id, book).subscribe(data => {
+        console.log('prišlo:', data);
+        this.refreshBooks();
+      });
     }
   }
 
-  updateFromList(book: Book): void {
-    this.updatingBook = book;
+  updateFromList(bookId: number): void {
+    this.bookService.getBook(bookId).subscribe(data => {
+      console.log('prišlo:', data);
+      this.updatingBook = data;
+    });
   }
 
-  deleteFromList(book: Book): void {
-    const index = this.books.findIndex(bookArray => bookArray.id === book.id);
-    if(index !== -1) {
-      this.books.splice(index, 1);
-    }
+  deleteFromList(bookId: number): void {
+    this.bookService.deleteBook(bookId).subscribe(data => {
+      this.refreshBooks();
+    });
   }
 
 }
