@@ -24,7 +24,7 @@ export class BookServiceService {
     return this.http.post<Book>(`${this.apiUrl}`, {name: book.name, author: book.author, available: book.available});
   }
 
-  updateBook(osobaId: number, book: Book): Observable<Book> {
+  updateBook(bookId: number, book: Book): Observable<Book> {
     return this.http.put<Book>(`${this.apiUrl}`, {name: book.name, author: book.author, available: book.available});
   }
 
