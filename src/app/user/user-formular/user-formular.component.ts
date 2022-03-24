@@ -43,7 +43,7 @@ export class UserFormularComponent {
   }
 
   public addUser(): void {
-    this.addNewUser.emit({ id: Math.random().toString(), name: this.form.value.name, contact: this.form.value.contact});
+    this.addNewUser.emit({ id: Math.random(), name: this.form.value.name, contact: this.form.value.contact});
     this.form.reset();
   }
 
