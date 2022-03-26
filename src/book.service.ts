@@ -6,7 +6,7 @@ import {Book} from './app/models/book.model';
 @Injectable({
   providedIn: 'root'
 })
-export class BookServiceService {
+export class BookService {
 
   private apiUrl = 'http://localhost:8080/api/books';
 
