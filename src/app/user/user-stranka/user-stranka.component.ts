@@ -22,7 +22,6 @@ export class UserStrankaComponent implements OnInit{
 
   refreshUser(): void {
     this.userService.getUsers().subscribe(data => {
-      console.log('prislo:', data);
       this.users = data;
     });
   }
@@ -33,7 +32,6 @@ export class UserStrankaComponent implements OnInit{
 
   addUser(user: User): void {
     this.userService.createUser(user).subscribe(data => {
-      console.log('prislo:', data);
       this.refreshUser();
     });
   }
@@ -41,7 +39,6 @@ export class UserStrankaComponent implements OnInit{
   updateUser(user: User): void {
     if (user.id !== undefined) {
       this.userService.updateUser(user.id, user).subscribe(data => {
-        console.log('prišlo:', data);
         this.refreshUser();
       });
     }
@@ -49,7 +46,6 @@ export class UserStrankaComponent implements OnInit{
 
   updateFromList(userId: number): void {
     this.userService.getUser(userId).subscribe(data => {
-      console.log('prišlo:', data);
       this.updatingUser = data;
     });
   }
