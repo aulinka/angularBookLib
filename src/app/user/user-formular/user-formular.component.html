@@ -2,8 +2,9 @@
 
 <form [formGroup]="form">
 
-  <label>Name: <input formControlName="name"></label><br>
-  <label>Contact: <input formControlName="contact"></label><br>
+  <label>First Name: <input formControlName="firstName"></label><br>
+  <label>Last Name: <input formControlName="lastName"></label><br>
+  <label>Email: <input formControlName="email"></label><br>
   <br>
 
   <button (click)="addUser()" *ngIf="form.value.id === null">Add user</button>
