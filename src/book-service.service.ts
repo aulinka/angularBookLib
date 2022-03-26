@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {Book, BookZoznam} from './app/models/book.model';
+import {Book} from './app/models/book.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +12,8 @@ export class BookServiceService {
 
   constructor(private http: HttpClient) { }
 
-  getBooks(): Observable<BookZoznam[]> {
-    return this.http.get<BookZoznam[]>(`${this.apiUrl}`);
+  getBooks(): Observable<Book[]> {
+    return this.http.get<Book[]>(`${this.apiUrl}`);
   }
 
   getBook(bookId: number): Observable<Book> {
@@ -21,11 +21,11 @@ export class BookServiceService {
   }
 
   createBook(book: Book): Observable<Book> {
-    return this.http.post<Book>(`${this.apiUrl}`, {name: book.name, author: book.author, available: book.available});
+    return this.http.post<Book>(`${this.apiUrl}`, book);
   }
 
   updateBook(bookId: number, book: Book): Observable<Book> {
-    return this.http.put<Book>(`${this.apiUrl}`, {name: book.name, author: book.author, available: book.available});
+    return this.http.put<Book>(`${this.apiUrl}`, book);
   }
 
   deleteBook(bookId: number): Observable<void> {

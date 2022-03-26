@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Book, BookZoznam} from "../../models/book.model";
+import {Book} from "../../models/book.model";
 
 @Component({
   selector: 'app-book-zoznam',
@@ -9,7 +9,7 @@ import {Book, BookZoznam} from "../../models/book.model";
 export class BookZoznamComponent {
 
   @Input()
-  books: BookZoznam[] = [];
+  books: Book[] = [];
 
   @Output()
   updateNewBook: EventEmitter<number> = new EventEmitter<number>();

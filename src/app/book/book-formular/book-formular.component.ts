@@ -31,21 +31,27 @@ export class BookFormularComponent {
   private createBookForm(): void {
     this.form = new FormGroup({
       id: new FormControl(null),
+      authorFirstName: new FormControl(null),
+      authorLastName: new FormControl(null),
       name: new FormControl(null),
-      author: new FormControl(null),
-      available: new FormControl(null)
+      isbn: new FormControl(null),
+      bookCount: new FormControl(null)
     });
   }
 
   private fillBookForm(book: Book): void {
     this.form.controls['id'].setValue(book.id);
+    this.form.controls['authorFirstName'].setValue(book.authorFirstName);
+    this.form.controls['authorLastName'].setValue(book.authorLastName);
+    this.form.controls['bookCount'].setValue(book.bookCount);
+    this.form.controls['isbn'].setValue(book.isbn);
     this.form.controls['name'].setValue(book.name);
-    this.form.controls['author'].setValue(book.author);
-    this.form.controls['available'].setValue(book.available);
+
+
   }
 
   public addBook(): void {
-    this.addNewBook.emit({ id: Math.random(), name: this.form.value.name, author: this.form.value.author, available: this.form.value.available});
+    this.addNewBook.emit(this.form.value);
     this.form.reset();
   }
 

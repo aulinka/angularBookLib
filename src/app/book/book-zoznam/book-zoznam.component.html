@@ -6,15 +6,19 @@
 
 <table class="bookTable" *ngIf="books?.length > 0">
   <tr>
-    <th>NAME </th>
-    <th>AUTHOR </th>
-    <th>AVAILABLE </th>
+    <th>ID</th>
+    <th>NAME</th>
+    <th>AUTHOR</th>
+    <th>ISBN</th>
+    <th>BOOK COUNT</th>
     <th></th>
   </tr>
   <tr *ngFor="let book of books">
+    <td>{{book.id}}</td>
     <td>{{book.name}}</td>
-    <td>{{book.author}}</td>
-    <td>{{book.available}}</td>
+    <td>{{book.authorFirstName + " " + book.authorLastName}}</td>
+    <td>{{book.isbn}}</td>
+    <td>{{book.bookCount}}</td>
     <td>
       <button (click)="updateBook(book.id)">Update</button>
       <button (click)="deleteBook(book.id)">Delete</button>

@@ -23,7 +23,6 @@ export class BookStrankaComponent implements OnInit {
 
   refreshBooks(): void {
     this.bookService.getBooks().subscribe(data => {
-      console.log('prišlo:', data);
       this.books = data;
     });
   }
@@ -34,7 +33,6 @@ export class BookStrankaComponent implements OnInit {
 
   addBook(book: Book): void {
     this.bookService.createBook(book).subscribe(data => {
-      console.log('prišlo:', data);
       this.refreshBooks();
     });
   }
@@ -42,7 +40,6 @@ export class BookStrankaComponent implements OnInit {
   updateBook(book: Book): void {
     if (book.id !== undefined) {
       this.bookService.updateBook(book.id, book).subscribe(data => {
-        console.log('prišlo:', data);
         this.refreshBooks();
       });
     }
@@ -50,7 +47,6 @@ export class BookStrankaComponent implements OnInit {
 
   updateFromList(bookId: number): void {
     this.bookService.getBook(bookId).subscribe(data => {
-      console.log('prišlo:', data);
       this.updatingBook = data;
     });
   }

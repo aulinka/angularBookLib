@@ -2,9 +2,11 @@
 
 <form [formGroup]="form">
 
-  <label>name: <input formControlName="name"></label><br>
-  <label>author: <input formControlName="author"></label><br>
-  <label>available: <input formControlName="available"></label><br>
+  <label>Name: <input formControlName="name"></label><br>
+  <label>Author First Name : <input formControlName="authorFirstName"></label><br>
+  <label>Author Last Name: <input formControlName="authorLastName"></label><br>
+  <label>ISBN: <input formControlName="isbn"></label><br>
+  <label>Book Count: <input formControlName="bookCount"></label><br>
 
   <button (click)="addBook()" *ngIf="form.value.id === null">Add book</button>
   <button (click)="updateBook()" *ngIf="form.value.id !== null">Update book</button>
