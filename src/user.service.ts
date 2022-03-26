@@ -7,7 +7,7 @@ import {Book} from "./app/models/book.model";
 @Injectable({
   providedIn: 'root'
 })
-export class UserServiceService {
+export class UserService {
 
   private apiUrl = 'http://localhost:8080/api/customers';
 
