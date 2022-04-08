@@ -1,15 +1,18 @@
-<form [formGroup]="form">
-  <label>BOOK ID:
-    <input formControlName="bookId">
-  </label>
-  <br>
-  <label>CUSTOMER ID:
-    <input formControlName="customerId">
-  </label>
-  <br>
+<div class="borrowing- form">
+  <form [formGroup]="form">
+    <div class="borrowing-form-input-group">
+      <label>BOOK ID:</label>
+      <input pInputText formControlName="bookId">
+    </div>
+    <div class="borrowing-form-input-group">
+      <label>CUSTOMER ID:</label>
+      <input pInputText formControlName="customerId">
+    </div>
+    <div class="borrowing-form-button-group">
+      <p-button class="borrowing-form-button" (click)="add()" *ngIf="form.value.id === null">Add borrowing</p-button>
+      <p-button class="borrowing-form-button" (click)="edit()" *ngIf="form.value.id !== null">Edit borrowing</p-button>
+      <p-button class="borrowing-form-button" (click)="discard()">Delete</p-button>
+    </div>
+  </form>
+</div>
 
-  <button (click)="add()" *ngIf="form.value.id === null">Add borrowing!</button>
-  <button (click)="edit()" *ngIf="form.value.id !== null">Edit borrowing!</button>
-  <button (click)="discard()"> Discard!</button>
-
-</form>

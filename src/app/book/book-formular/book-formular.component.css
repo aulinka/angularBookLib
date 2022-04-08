@@ -1,0 +1,12 @@
+.book-form-input-group label{
+  display: inline-block;
+  width: 150px;
+  margin-bottom: 20px;
+}
+.book-form-button-group{
+  width: 300px;
+  text-align: center;
+}
+.book-form-button-group .book-form-button{
+  margin-right: 20px;
+}

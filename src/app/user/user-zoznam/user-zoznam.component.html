@@ -1,25 +1,26 @@
-<h3>List of users:</h3>
-
-<div *ngIf="!users || users?.length === 0">
-  Zoznam používateľov je prázdny.
+<div class="user-list">
+  <h3>List of users:</h3>
+  <div *ngIf="!users || users?.length === 0">
+    Zoznam používateľov je prázdny.
+  </div>
+  <p-table [value]="users">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Name</th>
+        <th>Contact</th>
+        <th>Update/Delete</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-user>
+      <tr>
+        <td>{{user.firstName + " " + user.lastName}}</td>
+        <td>{{user.email}}</td>
+        <td>
+          <p-button class="user-list-button-group" (click)="updateUser(user.id)">Update</p-button>
+          <p-button class="user-list-button-group" (click)="deleteUser(user.id)">Delete</p-button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
 </div>
 
-<table class="userTable" *ngIf="users?.length > 0">
-  <thead>
-  <tr>
-    <th>NAME </th>
-    <th>CONTACT </th>
-    <th></th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let user of users">
-    <td>{{user.firstName + " " + user.lastName}}</td>
-    <td>{{user.email}}</td>
-    <td>
-      <button (click)="updateUser(user.id)">Update</button>
-      <button (click)="deleteUser(user.id)">Delete</button>
-    </td>
-  </tr>
-  </tbody>
-</table>

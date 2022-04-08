@@ -1,0 +1,12 @@
+.user-form-input-group label{
+  display: inline-block;
+  width: 100px;
+  margin-bottom: 20px;
+}
+.user-form-button-group{
+  width: 300px;
+  text-align: center;
+}
+.user-form-button-group .user-form-button{
+  margin-right: 20px;
+}

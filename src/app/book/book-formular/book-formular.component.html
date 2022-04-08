@@ -1,15 +1,30 @@
-<h2>BOOKS - form</h2>
+<div class="book-form">
+  <form [formGroup]="form">
+    <div class="book-form-input-group">
+      <label>Name:</label>
+      <input pInputText formControlName="name"><br>
+    </div>
+    <div class="book-form-input-group">
+      <label>Author First Name:</label>
+      <input pInputText  formControlName="authorFirstName"><br>
+    </div>
+    <div class="book-form-input-group">
+      <label>Author Last Name:</label>
+      <input pInputText formControlName="authorLastName"><br>
+    </div>
+    <div class="book-form-input-group">
+      <label>ISBN:</label>
+      <input pInputText formControlName="isbn"><br>
+    </div>
+    <div class="book-form-input-group">
+      <label>Book Count:</label>
+      <input pInputText formControlName="bookCount"><br>
+    </div>
+    <div class="book-form-button-group">
+      <p-button class="book-form-button" (click)="addBook()" *ngIf="form.value.id === null">Add book</p-button>
+      <p-button class="book-form-button" (click)="updateBook()" *ngIf="form.value.id !== null">Update book</p-button>
+      <p-button class="book-form-button" (click)="deleteBook()">Delete book</p-button>
+    </div>
+  </form>
+</div>
 
-<form [formGroup]="form">
-
-  <label>Name: <input formControlName="name"></label><br>
-  <label>Author First Name : <input formControlName="authorFirstName"></label><br>
-  <label>Author Last Name: <input formControlName="authorLastName"></label><br>
-  <label>ISBN: <input formControlName="isbn"></label><br>
-  <label>Book Count: <input formControlName="bookCount"></label><br>
-
-  <button (click)="addBook()" *ngIf="form.value.id === null">Add book</button>
-  <button (click)="updateBook()" *ngIf="form.value.id !== null">Update book</button>
-  <button (click)="deleteBook()">Delete book</button>
-
-</form>

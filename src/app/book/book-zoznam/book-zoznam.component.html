@@ -1,27 +1,32 @@
-<h3>List of books:</h3>
-
-<div *ngIf="!books || books?.length === 0">
-  The list of books is empty.
+<div class="book-list">
+  <h3>List of books:</h3>
+  <div *ngIf="!books || books?.length === 0">
+    Zoznam knih je prázdny.
+  </div>
+  <p-table [value]="books">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Author</th>
+        <th>ISBN</th>
+        <th>Book count</th>
+        <th>Update/Delete</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-book>
+      <tr>
+        <td>{{book.id}}</td>
+        <td>{{book.name}}</td>
+        <td>{{book.authorFirstName + " " + book.authorLastName}}</td>
+        <td>{{book.isbn}}</td>
+        <td>{{book.bookCount}}</td>
+        <td>
+          <p-button class="book-list-button" (click)="updateBook(book.id)">Update</p-button>
+          <p-button class="book-list-button" (click)="deleteBook(book.id)">Delete</p-button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
 </div>
 
-<table class="bookTable" *ngIf="books?.length > 0">
-  <tr>
-    <th>ID</th>
-    <th>NAME</th>
-    <th>AUTHOR</th>
-    <th>ISBN</th>
-    <th>BOOK COUNT</th>
-    <th></th>
-  </tr>
-  <tr *ngFor="let book of books">
-    <td>{{book.id}}</td>
-    <td>{{book.name}}</td>
-    <td>{{book.authorFirstName + " " + book.authorLastName}}</td>
-    <td>{{book.isbn}}</td>
-    <td>{{book.bookCount}}</td>
-    <td>
-      <button (click)="updateBook(book.id)">Update</button>
-      <button (click)="deleteBook(book.id)">Delete</button>
-    </td>
-  </tr>
-</table>

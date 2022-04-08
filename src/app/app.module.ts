@@ -16,6 +16,9 @@ import {UserFormularComponent} from "./user/user-formular/user-formular.componen
 import {UserStrankaComponent} from "./user/user-stranka/user-stranka.component";
 import { MenuComponent } from './menu/menu.component';
 import {HttpClientModule} from '@angular/common/http';
+import {ButtonModule} from 'primeng/button';
+import {InputTextModule} from "primeng/inputtext";
+import {TableModule} from "primeng/table";
 
 
 
@@ -39,7 +42,10 @@ import {HttpClientModule} from '@angular/common/http';
     RouterModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ButtonModule,
+    InputTextModule,
+    TableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

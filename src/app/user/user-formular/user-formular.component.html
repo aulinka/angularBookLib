@@ -1,15 +1,23 @@
-<h2>USERS - form</h2>
 
-<form [formGroup]="form">
+<div class="user-form">
+  <form [formGroup]="form">
+    <div class="user-form-input-group">
+      <label>First Name:</label>
+      <input pInputText formControlName="firstName">
+    </div>
+    <div class="user-form-input-group">
+      <label>Last Name:</label>
+      <input pInputText  formControlName="lastName">
+    </div>
+    <div class="user-form-input-group">
+      <label>Email:</label>
+      <input pInputText formControlName="email">
+    </div>
 
-  <label>First Name: <input formControlName="firstName"></label><br>
-  <label>Last Name: <input formControlName="lastName"></label><br>
-  <label>Email: <input formControlName="email"></label><br>
-  <br>
-
-  <button (click)="addUser()" *ngIf="form.value.id === null">Add user</button>
-  <button (click)="updateUser()" *ngIf="form.value.id !== null">Update user</button>
-  <button (click)="deleteUser()">Delete user</button>
-  <p-radioButton></p-radioButton>
-
-</form>
+    <div class="user-form-button-group">
+      <p-button class="user-form-button" (click)="addUser()" *ngIf="form.value.id === null">Add user</p-button >
+      <p-button class="user-form-button" (click)="updateUser()" *ngIf="form.value.id !== null">Update user</p-button>
+      <p-button class="user-form-button" (click)="deleteUser()">Delete user</p-button>
+    </div>
+  </form>
+</div>

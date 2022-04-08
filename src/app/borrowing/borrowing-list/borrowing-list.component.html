@@ -1,21 +1,28 @@
-<div *ngIf="!borrowings || borrowings.length === 0">
-  Zoznam je prazdny!
+<div class="borrowing-list">
+  <h3>List of borrowings:</h3>
+  <div *ngIf="!borrowings || borrowings.length === 0">
+    Zoznam je prazdny!
+  </div>
+  <p-table [value]="borrowings">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Id</th>
+        <th>Book</th>
+        <th>User</th>
+        <th>Update/Delete</th>
+      </tr>
+    </ng-template>
+   <ng-template pTemplate="body" let-bo>
+     <tr>
+       <td>{{bo.id}}</td>
+       <td>{{bo.bookId}}</td>
+       <td>{{bo.customerId}}</td>
+       <td>
+         <p-button class="borrowing-list-button" (click)="edit(bo)">Edit!</p-button>
+         <p-button class="borrowing-list-button" (click)="delete(bo)">Delete!</p-button>
+       </td>
+     </tr>
+   </ng-template>
+  </p-table>
 </div>
 
-
-<table class="BorrowingTable" *ngIf="borrowings.length > 0">
-  <tr>
-    <th>ID </th>
-    <th>BOOK </th>
-    <th>USER </th>
-  </tr>
-  <tr *ngFor="let bo of borrowings">
-    <td>{{bo.id}}</td>
-    <td>{{bo.bookId}}</td>
-    <td>{{bo.customerId}}</td>
-    <td>
-      <button (click)="edit(bo)">Edit!</button>
-      <button (click)="delete(bo)">Delete!</button>
-    </td>
-  </tr>
-</table>
