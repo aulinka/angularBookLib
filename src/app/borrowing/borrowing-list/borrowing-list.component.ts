@@ -15,12 +15,12 @@ export class BorrowingListComponent{
   editBorrowing : EventEmitter<Borrowing> = new EventEmitter<Borrowing>();
 
   @Output()
-  deleteBorrowing : EventEmitter<Borrowing> = new EventEmitter<Borrowing>();
+  deleteBorrowing : EventEmitter<number> = new EventEmitter<number>();
 
   public edit(borrowing : Borrowing): void{
     this.editBorrowing.emit(borrowing);
   }
   public delete(borrowing : Borrowing): void{
-    this.deleteBorrowing.emit(borrowing);
+    this.deleteBorrowing.emit(borrowing.id);
   }
 }

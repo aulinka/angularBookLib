@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Book} from "../../models/book.model";
 import {Router} from "@angular/router";
-import {BookServiceService} from "../../../book-service.service";
+import {BookService} from "../../../book.service";
 
 @Component({
   selector: 'app-book-stranka',
@@ -14,7 +14,7 @@ export class BookStrankaComponent implements OnInit {
 
   updatingBook?: Book;
 
-  constructor(private router: Router, private bookService: BookServiceService) {
+  constructor(private router: Router, private bookService: BookService) {
   }
 
   ngOnInit(): void {

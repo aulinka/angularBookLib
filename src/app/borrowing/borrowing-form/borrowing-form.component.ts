@@ -29,18 +29,18 @@ export class BorrowingFormComponent {
   private createForm(): void{
     this.form= new FormGroup({
         id: new FormControl(null),
-        book: new FormControl(null),
-        user: new FormControl(null)
+        bookId: new FormControl(null),
+        customerId: new FormControl(null)
       });
   }
   private fillForm(borrowing: Borrowing): void{
     this.form.controls['id'].setValue(borrowing.id);
-    this.form.controls['book'].setValue(borrowing.book);
-    this.form.controls['user'].setValue(borrowing.user);
+    this.form.controls['bookId'].setValue(borrowing.bookId);
+    this.form.controls['customerId'].setValue(borrowing.customerId);
   }
 
   public add(){
-    this.addBorrowing.emit({id: (Math.floor(Math.random()*10)).toString(), book: this.form.value.book, user: this.form.value.user});
+    this.addBorrowing.emit(this.form.value);
     this.form.reset();
   }
   public edit(){
@@ -51,5 +51,4 @@ export class BorrowingFormComponent {
     this.borrowing = undefined;
     this.form.reset();
   }
-
 }

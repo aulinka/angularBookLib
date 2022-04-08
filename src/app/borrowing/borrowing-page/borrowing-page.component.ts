@@ -23,7 +23,7 @@ export class BorrowingPageComponent implements OnInit{
     this.router.navigate(['']);
   }
   public addBorrowing(borrowing : Borrowing) : void{
-    this.borrowings.push(borrowing);
+    this.borrowingService.createBorrowing(borrowing).subscribe(data => {this.refreshBorrowing()});
   }
   public editBorrowing(borrowing : Borrowing) : void{
     const index = this.borrowings.findIndex(b => b.id === borrowing.id);
@@ -34,19 +34,17 @@ export class BorrowingPageComponent implements OnInit{
   public editFromList(borrowing : Borrowing) : void{
     this.borrowingEdited = borrowing;
   }
-  public deleteFromList(borrowing : Borrowing) : void{
-    const index = this.borrowings.findIndex(b => b.id === borrowing.id);
-    if(index !== -1){
-      this.borrowings.splice(index,1);
-    }
+  public deleteFromList(borrowingId : number) : void{
+    this.borrowingService.deleteBorrowing(borrowingId).subscribe(data => {
+      this.refreshBorrowing();
+    })
   }
   public refreshBorrowing() : void{
     this.borrowingService.getBorrowings().subscribe(data => {
       this.borrowings = [];
       for(const d of data){
-        this.borrowings.push({id: d.id.toString(), book: d.bookId.toString(), user: d.customerId.toString()});
+        this.borrowings.push({id: d.id, bookId: d.bookId, customerId: d.customerId});
       }
     });
   }
-
 }

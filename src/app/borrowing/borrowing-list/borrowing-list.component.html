@@ -11,8 +11,8 @@
   </tr>
   <tr *ngFor="let bo of borrowings">
     <td>{{bo.id}}</td>
-    <td>{{bo.book}}</td>
-    <td>{{bo.user}}</td>
+    <td>{{bo.bookId}}</td>
+    <td>{{bo.customerId}}</td>
     <td>
       <button (click)="edit(bo)">Edit!</button>
       <button (click)="delete(bo)">Delete!</button>

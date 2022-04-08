@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {User} from '../../models/user.model';
 import {Router} from '@angular/router';
-import {UserServiceService} from "../../../user-service.service";
+import {UserService} from "../../../user.service";
 
 @Component({
   selector: 'app-user-stranka',
@@ -14,7 +14,7 @@ export class UserStrankaComponent implements OnInit{
 
   updatingUser?: User;
 
-  constructor(private router: Router, private userService: UserServiceService) { }
+  constructor(private router: Router, private userService: UserService) { }
 
   ngOnInit(): void {
     this.refreshUser();
